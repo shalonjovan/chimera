@@ -1,0 +1,9 @@
+name: pwn
+version: 0.1.0
+author: chimera
+description: Binary exploitation challenge analysis
+tools:
+  - pwn
+dependencies: []
+categories:
+  - pwn
