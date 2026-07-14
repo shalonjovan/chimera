@@ -1,0 +1,11 @@
+name: reverse
+version: 0.1.0
+author: chimera
+description: Reverse engineering challenge analysis
+tools:
+  - reverse
+dependencies:
+  - file
+  - strings
+categories:
+  - reverse
