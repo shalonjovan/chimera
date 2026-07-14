@@ -1,0 +1,11 @@
+name: osint
+version: 0.1.0
+author: chimera
+description: Open-source intelligence challenge analysis
+tools:
+  - osint
+dependencies:
+  - curl
+  - dig
+categories:
+  - osint
