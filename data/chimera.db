@@ -1,0 +1,30 @@
+{
+  "knowledge": [
+    {
+      "challenge_id": "test123",
+      "challenge_title": "Test",
+      "category": "misc",
+      "flag": null,
+      "tools_used": [],
+      "patterns_matched": [],
+      "reasoning": "",
+      "mistakes": [],
+      "solved": true,
+      "duration_seconds": 0,
+      "created_at": "2026-07-14T11:13:47.691066"
+    }
+  ],
+  "patterns": [],
+  "failures": [
+    {
+      "id": "fail_1784007828",
+      "hypothesis_id": "",
+      "tool_name": "test_tool",
+      "command": "cmd",
+      "error": "error msg",
+      "context": {},
+      "lesson": "lesson learned",
+      "created_at": "2026-07-14T11:13:47.691147"
+    }
+  ]
+}
