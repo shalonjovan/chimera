@@ -11,6 +11,8 @@ def main() -> int:
     setup_logging()
     register_builtin_tools()
 
+    import chimera.core.tools
+
     if settings.mcp_transport == "sse":
         server.run_sse()
         return 0
