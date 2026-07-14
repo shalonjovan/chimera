@@ -1,0 +1,17 @@
+name: Format String Vulnerability
+conditions:
+  - format string
+  - printf
+  - "0x%x"
+  - "%n write"
+  - arbitrary read
+confidence: 0.88
+required_tools:
+  - pwntools
+category: pwn
+source: pattern_library
+playbook:
+  - Identify format string function calls
+  - Leak stack values with %p/%x
+  - Write arbitrary memory with %n
+  - Redirect execution to shellcode

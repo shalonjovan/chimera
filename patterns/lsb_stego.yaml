@@ -1,0 +1,17 @@
+name: LSB Steganography
+conditions:
+  - image
+  - png
+  - bmp
+  - hidden
+  - lsb
+confidence: 0.82
+required_tools:
+  - zsteg
+category: stego
+source: pattern_library
+playbook:
+  - Check image file type
+  - Run zsteg --all on the image
+  - Extract hidden data from LSB
+  - Look for flag pattern in output

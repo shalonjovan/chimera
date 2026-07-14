@@ -1,0 +1,14 @@
+name: Base64 Encoded Flag
+conditions:
+  - base64
+  - encoded
+  - decode
+confidence: 0.85
+required_tools:
+  - python
+category: crypto
+source: pattern_library
+playbook:
+  - Identify base64 string
+  - Decode with python base64 module
+  - Look for flag{} pattern in output

@@ -1,0 +1,16 @@
+name: Hastad Broadcast
+conditions:
+  - rsa
+  - e=3
+  - broadcast
+  - multiple ciphertexts
+confidence: 0.94
+required_tools:
+  - sage
+category: crypto
+source: pattern_library
+playbook:
+  - Collect all ciphertexts
+  - Verify same e=3 across all
+  - Apply Hastad's theorem via CRT
+  - Recover plaintext
