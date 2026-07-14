@@ -1,0 +1,12 @@
+name: forensics
+version: 0.1.0
+author: chimera
+description: Digital forensics challenge analysis
+tools:
+  - forensics
+dependencies:
+  - file
+  - binwalk
+  - strings
+categories:
+  - forensics
