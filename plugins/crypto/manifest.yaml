@@ -1,0 +1,9 @@
+name: crypto
+version: 0.1.0
+author: chimera
+description: Cryptographic challenge analysis and solving
+tools:
+  - crypto
+dependencies: []
+categories:
+  - crypto
