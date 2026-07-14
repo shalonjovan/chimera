@@ -1,0 +1,25 @@
+{
+  "id": "test_knowledge",
+  "title": "Test Challenge",
+  "description": "A test challenge for knowledge system",
+  "category": "crypto",
+  "status": "imported",
+  "source": "",
+  "files": [],
+  "hypotheses": [
+    {
+      "id": "hyp_1784008367",
+      "description": "RSA attack",
+      "category": "crypto",
+      "tools": [
+        "crypto"
+      ],
+      "confidence": 0.85,
+      "evidence": [],
+      "created_at": "2026-07-14T11:22:47.469598"
+    }
+  ],
+  "flag": "flag{test123}",
+  "created_at": "2026-07-14T11:22:47.469614",
+  "updated_at": "2026-07-14T11:22:47.469615"
+}
