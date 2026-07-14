@@ -1,0 +1,11 @@
+name: web
+version: 0.1.0
+author: chimera
+description: Web exploitation challenge analysis
+tools:
+  - web
+dependencies:
+  - curl
+  - python-multipart
+categories:
+  - web
