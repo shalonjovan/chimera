@@ -1,0 +1,9 @@
+name: stego
+version: 0.1.0
+author: chimera
+description: Steganography detection and analysis
+tools:
+  - stego
+dependencies: []
+categories:
+  - stego
