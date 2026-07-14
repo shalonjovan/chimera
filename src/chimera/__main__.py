@@ -4,10 +4,12 @@ import sys
 from chimera.config.settings import settings
 from chimera.core.logging import setup_logging
 from chimera.core.server import server
+from chimera.tools.builtin import register_builtin_tools
 
 
 def main() -> int:
     setup_logging()
+    register_builtin_tools()
 
     if settings.mcp_transport == "sse":
         server.run_sse()
