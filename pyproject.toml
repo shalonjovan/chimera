@@ -12,10 +12,13 @@ dependencies = [
     "pydantic>=2.0.0",
     "pyyaml>=6.0",
     "rich>=13.0.0",
+    "click>=8.0.0",
 ]
 
 [project.scripts]
 chimera = "chimera.__main__:main"
+chimera-server = "chimera.__main__:main"
+chimera-cli = "chimera.cli.app:cli"
 
 [tool.uv]
 package = true
