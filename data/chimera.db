@@ -25,6 +25,46 @@
       "context": {},
       "lesson": "lesson learned",
       "created_at": "2026-07-14T11:13:47.691147"
+    },
+    {
+      "id": "fail_1784008455",
+      "hypothesis_id": "hyp_1784008455",
+      "tool_name": "crypto",
+      "command": "",
+      "error": "Hypothesis failed: AES decryption",
+      "context": {},
+      "lesson": "Confidence 0.60 was insufficient",
+      "created_at": "2026-07-14T11:24:14.612692"
+    },
+    {
+      "id": "fail_1784008455",
+      "hypothesis_id": "",
+      "tool_name": "crypto",
+      "command": "decrypt",
+      "error": "Unknown algorithm",
+      "context": {},
+      "lesson": "Need more crypto primitives",
+      "created_at": "2026-07-14T11:24:14.613231"
+    },
+    {
+      "id": "fail_1784008463",
+      "hypothesis_id": "hyp_1784008463",
+      "tool_name": "crypto",
+      "command": "",
+      "error": "Hypothesis failed: AES decryption",
+      "context": {},
+      "lesson": "Confidence 0.60 was insufficient",
+      "created_at": "2026-07-14T11:24:22.595518"
+    },
+    {
+      "id": "fail_1784008463",
+      "hypothesis_id": "",
+      "tool_name": "crypto",
+      "command": "decrypt",
+      "error": "Unknown algorithm",
+      "context": {},
+      "lesson": "Need more crypto primitives",
+      "created_at": "2026-07-14T11:24:22.595930"
     }
   ]
 }
