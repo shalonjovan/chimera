@@ -1,0 +1,12 @@
+name: cyberchef
+version: 0.1.0
+author: chimera
+description: CyberChef-powered decoding, transformation and auto-detection (Magic)
+tools:
+  - cyberchef
+dependencies:
+  - node
+categories:
+  - crypto
+  - forensics
+  - misc

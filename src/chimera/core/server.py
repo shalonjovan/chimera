@@ -51,13 +51,13 @@ class ChimeraServer:
     def get_tool(self, name: str) -> ToolFunc | None:
         return self._tools.get(name)
 
-    async def run_stdio(self) -> None:
+    def run_stdio(self) -> None:
         log.info(
             "Starting Chimera MCP server (stdio transport, log_level=%s)",
             settings.log_level,
         )
-        async with self.mcp.run(transport="stdio"):
-            log.info("MCP server stopped")
+        self.mcp.run(transport="stdio")
+        log.info("MCP server stopped")
 
     async def run_sse(self) -> None:
         log.info(

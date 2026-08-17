@@ -28,6 +28,11 @@ class Settings(BaseSettings):
     sandbox_enabled: bool = False
     sandbox_image: str = "python:3.12-slim"
 
+    cyberchef_enabled: bool = True
+    cyberchef_node_path: str = "node"
+    cyberchef_bridge_path: Path = Path("vendor/cyberchef-bridge/bridge.mjs")
+    cyberchef_timeout: float = 30.0
+
     llm_provider: str = "openai"
     llm_model: str = "gpt-4o"
     llm_api_key: str = ""

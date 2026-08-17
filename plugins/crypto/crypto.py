@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-import base64
 import re
-from pathlib import Path
 
 from chimera.core.logging import get_logger
 from chimera.core.models import Challenge, ChallengeCategory, PluginManifest
 from chimera.plugins.base import BasePlugin
+from chimera.tools.cyberchef import bridge
 
 log = get_logger(__name__)
 
@@ -29,6 +28,13 @@ ENCODED_PATTERNS = [
     (r"^[01]+$", "binary"),
     (r"^[A-Za-z]+$", "alphabetic"),
 ]
+
+DECODE_OPS = {
+    "base64": "From Base64",
+    "hex": "From Hex",
+    "rot13": "ROT13",
+    "binary": "From Binary",
+}
 
 
 class CryptoPlugin(BasePlugin):
@@ -73,7 +79,7 @@ class CryptoPlugin(BasePlugin):
             content = fpath.read_text(encoding="utf-8", errors="replace")
 
             for enc_name in ["base64", "hex", "binary", "rot13"]:
-                decoded = self._try_decode(content.strip(), enc_name)
+                decoded = await self._try_decode(content.strip(), enc_name)
                 if decoded:
                     findings.append(f"Detected {enc_name} encoding in {fpath.name}")
 
@@ -94,13 +100,13 @@ class CryptoPlugin(BasePlugin):
                 continue
             content = fpath.read_text(encoding="utf-8", errors="replace").strip()
 
-            decoded = self._try_decode(content, "base64")
+            decoded = await self._try_decode(content, "base64")
             if decoded:
                 challenge.flag = self._extract_flag(decoded)
                 if challenge.flag:
                     return challenge
 
-            decoded = self._try_decode(content, "hex")
+            decoded = await self._try_decode(content, "hex")
             if decoded:
                 flag = self._extract_flag(decoded)
                 if flag:
@@ -119,20 +125,28 @@ class CryptoPlugin(BasePlugin):
             return True
         return False
 
-    def _try_decode(self, text: str, encoding: str) -> str | None:
-        try:
-            if encoding == "base64":
-                return base64.b64decode(text).decode("utf-8", errors="replace")
-            elif encoding == "hex":
-                return bytes.fromhex(text).decode("utf-8", errors="replace")
-            elif encoding == "rot13":
-                return text.translate(str.maketrans(
-                    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-                    "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm",
-                ))
-        except Exception:
+    async def _try_decode(self, text: str, encoding: str) -> str | None:
+        op = DECODE_OPS.get(encoding)
+        if op is None:
             return None
-        return None
+        try:
+            result = await bridge.run_operation(
+                op, None, self._to_b64(text)
+            )
+        except Exception as e:
+            log.debug("CyberChef %s failed for %r: %s", op, text[:40], e)
+            return None
+        return self._result_text(result)
+
+    @staticmethod
+    def _to_b64(text: str) -> str:
+        import base64
+
+        return base64.b64encode(text.encode("utf-8")).decode("ascii")
+
+    @staticmethod
+    def _result_text(result: dict) -> str:
+        return result.get("outputText") or ""
 
     def _extract_flag(self, text: str) -> str | None:
         m = re.search(r"(flag|CTF)\{[^}]+\}", text, re.IGNORECASE)

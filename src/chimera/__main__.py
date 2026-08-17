@@ -20,10 +20,10 @@ def main() -> int:
         registry.load_from_directory(plugins_dir)
 
     if settings.mcp_transport == "sse":
-        server.run_sse()
+        asyncio.run(server.run_sse())
         return 0
     else:
-        asyncio.run(server.run_stdio())
+        server.run_stdio()
         return 0
 
 

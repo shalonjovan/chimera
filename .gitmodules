@@ -1,0 +1,3 @@
+[submodule "vendor/cyberchef"]
+	path = vendor/cyberchef
+	url = https://github.com/gchq/CyberChef.git
