@@ -8,7 +8,7 @@ through a plugin architecture — now powered by
 Chimera is designed to continuously expand its capabilities through new
 plugins, reusable patterns, and accumulated experience rather than relying
 solely on an LLM. The system grows by adding structured knowledge — not by
-silently rewriting itself (see `CTF_MCP_PRD.md` for the full product spec).
+silently rewriting itself.
 
 ## Highlights
 
@@ -256,7 +256,6 @@ knowledge/            per-challenge archives
 patterns/             YAML pattern library
 tests/                pytest suite (bridge round-trips, plugin end-to-end solves)
 scripts/setup_cyberchef.sh
-CTF_MCP_PRD.md        original product spec
 ```
 
 ## Testing
@@ -273,7 +272,7 @@ client restarts the bridge when the event loop changes (pytest-asyncio).
 
 ## Status / roadmap
 
-Implemented across 5 phases (see git history and `CTF_MCP_PRD.md`):
+Implemented across 5 phases (see git history):
 
 - **Phase 1**: MCP server, planner, builtin shell/filesystem tools, challenge
   lifecycle
